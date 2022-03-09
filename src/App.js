@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
 
+  // addEventListener('click',()=>{});
 
   // var [ a,b ] = [10,100]
   
@@ -22,6 +23,8 @@ function App() {
   {/* 이런식으로 style도 변수에 담아서 사용 가능함 */}
   // document.getelementById('').innerHTML="" <<js데이터 집어넣기(바인딩)
 
+  let [하트,하트변경] = useState(0);
+
   return (
     <div className="App">
      <div className="navbar">
@@ -33,12 +36,14 @@ function App() {
       {/* { 함수() } */}
       {/* img src = { image 파일명(확장자x) } */}
       <div className='list'>
-        <h3> { 글제목[0] } </h3>
+        <h3> { 글제목[0] } <span onClick={()=>{하트변경(하트+1)}}>♥</span> {하트} </h3>
+        {/* 하트를 누를 때 마다 숫자가 올라가는 법 */}
+        {/* onClick={} {}에는 함수만 들어갈수있음 */}
         <p> 발행날짜 </p>
       </div>
 
       <div className='list'>
-        <h3> { 글제목[1] } </h3>
+        <h3> { 글제목[1] } </h3><span onClick={()=>{글제목변경(글제목[0])}}>버튼</span>
         <p> 발행날짜 </p>
       </div>
 
