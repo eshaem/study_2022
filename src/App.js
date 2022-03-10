@@ -12,7 +12,19 @@ function App() {
   //[a(=데이터),b(=데이터 변경하는 함수)]
   //a와 b에 각각 데이터를 넣어주세요
 
-  let [글제목2, 글제목변경2] = useState('게임'); 
+
+  // state 데이터 변경하는법
+  // 변경함수(대체할 데이터=deep copy한 state)
+
+  function 제목변경(){
+    var newArray = [...글제목] ;
+    // var newArray = [...글제목] <<< ...를 붙여야 딥카피댐
+    // var newArray = 글제목 << 값 공유
+    newArray[0] = '게임2' ; 
+    // 글 제목에 있던 0번째 데이터를 바꿈
+    // state는 복사(deep copy)해서 수정
+    글제목변경(newArray);
+  };
 
   let posts = ' 게임' ; 
   function 함수(){
@@ -43,7 +55,8 @@ function App() {
       </div>
 
       <div className='list'>
-        <h3> { 글제목[1] } </h3><span onClick={()=>{글제목변경(글제목[0])}}>버튼</span>
+        <h3> { 글제목[1] } </h3><span onClick={ 제목변경 }>버튼</span>
+        {/* 함수()는 바로 실행이기때문에 ()빼야함 */}
         <p> 발행날짜 </p>
       </div>
 
