@@ -14,7 +14,7 @@ function App() {
 
 
   // state 데이터 변경하는법
-  // 변경함수(대체할 데이터=deep copy한 state)
+  // 변경함수(대체할 데이터=deep copy한 state)사용
 
   function 제목변경(){
     var newArray = [...글제목] ;
@@ -49,6 +49,7 @@ function App() {
       {/* img src = { image 파일명(확장자x) } */}
       <div className='list'>
         <h3> { 글제목[0] } <span onClick={()=>{하트변경(하트+1)}}>♥</span> {하트} </h3>
+        <span onClick={()=>{하트변경(하트-하트)}}>초기화</span>
         {/* 하트를 누를 때 마다 숫자가 올라가는 법 */}
         {/* onClick={} {}에는 함수만 들어갈수있음 */}
         <p> 발행날짜 </p>
@@ -65,8 +66,31 @@ function App() {
         <p> 발행날짜 </p>
       </div>
 
-    </div>
+      {/* html을 한 단어로 줄여서 쓰기 -> component */}
+      {/* modal 함수를 만들기 return안에 html내용넣기 */}
+      
+      <Modal />
+
+      </div>
+
+    
   );
+}
+
+// component만들때 function app()안에 넣지말고 새로만드는거임
+// component 만드는 기준
+// -> 반복출연하는 Html덩어리
+// -> 자주 변경되는 html ui
+
+function Modal(){
+  return(
+    // div쓰기싫으면 <></>써도댐
+    <div className='modal'>
+        <h2>제목</h2>
+        <p>날짜</p>
+        <p>내용</p>
+    </div>
+  )
 }
 
 export default App;
