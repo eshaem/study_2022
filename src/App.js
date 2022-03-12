@@ -7,6 +7,10 @@ function App() {
   // addEventListener('click',()=>{});
 
   // var [ a,b ] = [10,100]
+
+  let [modal,modal변경] = useState(false);
+  // ui 노출 비노출을 state에 담아둠
+
   
   let [글제목, 글제목변경] = useState(['게임','게임2','게임3']); 
   //[a(=데이터),b(=데이터 변경하는 함수)]
@@ -15,6 +19,13 @@ function App() {
 
   // state 데이터 변경하는법
   // 변경함수(대체할 데이터=deep copy한 state)사용
+
+
+  // function 모달변경(){
+  //   var newmodal = [...modal];
+  //   newmodal[0] = ture ; 
+  //   modal변경(newmodal)
+  // }
 
   function 제목변경(){
     var newArray = [...글제목] ;
@@ -62,14 +73,42 @@ function App() {
       </div>
 
       <div className='list'>
-        <h3> { 글제목[2] } </h3>
+        <h3 onClick={ ()=>{modal변경(true)} }> { 글제목[2] } </h3>
         <p> 발행날짜 </p>
       </div>
+
+      {/* 버튼 눌렀을때 모달창 나오도록  */}
+      {/* if대신 삼항연산자 하단 예시*/}
+      {
+        1<3 
+        ? console.log('Yes') 
+        : console.log('no')
+      }
+      
+      {/* 1<3이 성립하면 yes출력 아니면 no출력 */}
+      {/* 리액트에선 ui만들때 state이용 */}
+      {/* {
+        modal === true
+        ? <Modal></Modal>
+        : null
+      } */}
+
+      <button onClick={()=>{modal변경(!modal)}}>버튼</button>
+
+      {
+        modal === true
+        ? <Modal></Modal>
+        : null
+      }
+
+      
+
+
 
       {/* html을 한 단어로 줄여서 쓰기 -> component */}
       {/* modal 함수를 만들기 return안에 html내용넣기 */}
       
-      <Modal />
+      
 
       </div>
 
