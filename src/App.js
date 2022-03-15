@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-{/* The following line can be included in your src/index.js or App.js file*/}
 import { Button,Navbar,Container,Nav,NavDropdown } from 'react-bootstrap';
 import Data from './data.js';
+import Detail from './Detail';
 
 import { Link, Route, Switch } from 'react-router-dom' ; 
 
@@ -14,14 +14,18 @@ function App() {
   
   return (
     <div className="App">
+
+      
       <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="#home">Shopping mall</Navbar.Brand>
+        
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link><Link to="/">Home</Link></Nav.Link>
+            {/* 리액트 링크걸기 <Link to="/">*/}
+            <Nav.Link><Link to="/detail">Detail</Link></Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -38,7 +42,7 @@ function App() {
 
     {/* 자동칸배치 */}
 
-
+    <Switch>
     <Route exact path="/">
       {/* exact추가하면 경로가 정확할때만 노출 */}
       <div className='jumbo'>
@@ -65,28 +69,20 @@ function App() {
     </Route>
 
     <Route path="/detail">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6">
-            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
-          </div>
-          <div className="col-md-6 mt-4">
-            <h4 className="pt-5">상품명</h4>
-            <p>상품설명</p>
-            <p>120000원</p>
-            <button className="btn btn-danger">주문하기</button> 
-          </div>
-        </div>
-      </div> 
+      <Detail />   
     </Route>
-
     {/* <Route path="/어쩌구" component={Modal}></Route> */}
+
+    
+    <Route path="/:id">
+      <div>아무거나 적었을 때 이거 노출</div>
+    </Route>
     
 
     
 
         
-        
+    </Switch>
       </div>
       
      
@@ -97,9 +93,11 @@ function App() {
 
  
 
-    
+      
   );
 }
+
+
 
 function Card(props){
 
@@ -113,3 +111,4 @@ function Card(props){
 }
 
 export default App;
+
