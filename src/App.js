@@ -68,8 +68,8 @@ function App() {
 
     </Route>
 
-    <Route path="/detail">
-      <Detail />   
+    <Route path="/detail/0">
+      <Detail 신발 = {신발}/>   
     </Route>
     {/* <Route path="/어쩌구" component={Modal}></Route> */}
 
