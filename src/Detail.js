@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
 import { useHistory,useParams } from 'react-router-dom'
+import styled from'styled-components';
+
+let 박스 = styled.div`
+padding : 25px;
+` //css를 입혀놓은 컴포넌트
+//padding이 20px입혀진 div박스
+// 
+
+let 제목 = styled.h4`
+  font-size : 25px;
+  color : ${ props => props.색상 }
+`
+
+//일부 속성만 전달할땐 ${ props => props.속성 }
 
 
 function Detail(props){
@@ -12,6 +26,9 @@ function Detail(props){
 
     return(
       <div className="container">
+        <박스>
+          <제목 색상='red'>Product Detail page</제목>
+        </박스>
           <div className="row">
             <div className="col-md-6">
               <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />

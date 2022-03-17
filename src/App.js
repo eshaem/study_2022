@@ -68,7 +68,7 @@ function App() {
 
     </Route>
 
-    <Route path="/detail/0">
+    <Route path="/detail/:id">
       <Detail 신발 = {신발}/>   
     </Route>
     {/* <Route path="/어쩌구" component={Modal}></Route> */}
@@ -105,7 +105,7 @@ function Card(props){
   <div className='col-md-4'>
       <img src={'https://codingapple1.github.io/shop/shoes'+ ( props.i+1 ) +'.jpg'} width="100%"/>
       <h4>{ props.신발.title}</h4>
-      <p>{props.신발.content} & {props.신발.price}</p>
+      <p>{props.신발.content} / {props.신발.price}</p>
     </div>
     )
 }
