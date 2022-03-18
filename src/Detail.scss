@@ -1,0 +1,49 @@
+// sass문법 -> 변수에 데이터 저장
+
+// @import './reset.scss' ; 
+// 파일 임폴트
+
+$메인컬러 : #ff0000 ; 
+//$변수명 : 변수에 넣을 값
+
+.red{
+    color: $메인컬러;
+}
+
+// div.container h4{
+//     color: blue ;
+// }
+
+// div.container p{
+//     color: aquamarine;
+// }
+
+//셀렉터
+// div.container {
+//     h4{ color: blue }
+//     p{color: green;}
+// }
+
+@mixin 함수() {
+    background-color: #eee;
+    border: black;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.alert{
+    @include 함수()
+}
+
+.alert2{
+    @extend .alert ; 
+    background-color: #ffe591;
+}
+
+// @extend 이전 클래스 속성을 갖다 붙여주세요
+
+
+
+.alert p{
+    padding-bottom: 0px;
+}
