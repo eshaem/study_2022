@@ -4,6 +4,7 @@ import './App.css';
 import { Button,Navbar,Container,Nav,NavDropdown } from 'react-bootstrap';
 import Data from './data.js';
 import Detail from './Detail';
+import axios from 'axios';
 
 import { Link, Route, Switch } from 'react-router-dom' ; 
 
@@ -64,7 +65,21 @@ function App() {
           })
         } */}
         </div>
+        <div>
+        <button className='show' onClick={()=>{
+
+          axios.get('https://codingapple1.github.io/shop/data2.json')
+          .then((결과)=>{
+            console.log(결과.data)
+          }) //성공할때 나옴
+          .catch(()=>{
+            console.log('실패')}) // 실패할때 나옴
+          // axios.get(데이터 요청할 링크);
+        }}>더보기</button>
     </div>
+    </div>
+
+    
 
     </Route>
 
